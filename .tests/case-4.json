@@ -1,0 +1,43 @@
+{
+ "name": "card draws CPU and memory",
+ "script": "card.lua",
+ "kind": "widget",
+ "entry": "card",
+ "run": {
+  "wol sys stats --json": [
+   "{\"cpu_percent\": 10, \"load\": {\"one\": 1.5, \"five\": 1.25, \"fifteen\": 0.75}, \"memory\": {\"total\": 16000, \"used\": 4000}, \"uptime_secs\": 100.5}",
+   "{\"cpu_percent\": 90, \"load\": {\"one\": 1.5, \"five\": 1.25, \"fifteen\": 0.75}, \"memory\": {\"total\": 16000, \"used\": 12000}, \"uptime_secs\": 100.5}"
+  ]
+ },
+ "steps": [
+  {
+   "do": "render",
+   "now": [
+    2026,
+    11,
+    5,
+    4,
+    14,
+    0,
+    0
+   ]
+  },
+  {
+   "do": "render"
+  }
+ ],
+ "expect": [
+  "90%  (highest 90%)",
+  "75%  (highest 75%)",
+  "▂▇",
+  "▃▆",
+  "Last 1 min, load 1.50"
+ ],
+ "absent": [
+  "ERROR"
+ ],
+ "plugin": "wonderlandos.loadgraph",
+ "permissions": [
+  "run"
+ ]
+}

@@ -1,0 +1,54 @@
+{
+ "name": "bar draws the last 30 seconds of CPU",
+ "script": "bar.lua",
+ "kind": "menubar",
+ "entry": "bar",
+ "run": {
+  "wol sys stats --json": [
+   "{\"cpu_percent\": 0, \"load\": {\"one\": 1.5, \"five\": 1.25, \"fifteen\": 0.75}, \"memory\": {\"total\": 16000, \"used\": 4000}, \"uptime_secs\": 100.5}",
+   "{\"cpu_percent\": 50, \"load\": {\"one\": 1.5, \"five\": 1.25, \"fifteen\": 0.75}, \"memory\": {\"total\": 16000, \"used\": 4000}, \"uptime_secs\": 100.5}",
+   "{\"cpu_percent\": 100, \"load\": {\"one\": 1.5, \"five\": 1.25, \"fifteen\": 0.75}, \"memory\": {\"total\": 16000, \"used\": 8000}, \"uptime_secs\": 100.5}",
+   "{\"cpu_percent\": 12.4, \"load\": {\"one\": 1.5, \"five\": 1.25, \"fifteen\": 0.75}, \"memory\": {\"total\": 16000, \"used\": 8000}, \"uptime_secs\": 100.5}"
+  ]
+ },
+ "steps": [
+  {
+   "do": "render",
+   "now": [
+    2026,
+    11,
+    5,
+    4,
+    14,
+    0,
+    0
+   ]
+  },
+  {
+   "do": "render"
+  },
+  {
+   "do": "render"
+  },
+  {
+   "do": "render"
+  },
+  {
+   "do": "popover"
+  }
+ ],
+ "expect": [
+  "CPU   ▁▅█▂ 12%",
+  "Memory 50%",
+  "highest 100%",
+  "Load average 1.50, 1.25, 0.75",
+  "Open Top"
+ ],
+ "absent": [
+  "ERROR"
+ ],
+ "plugin": "wonderlandos.loadgraph",
+ "permissions": [
+  "run"
+ ]
+}

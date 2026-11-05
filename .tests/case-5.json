@@ -1,0 +1,38 @@
+{
+ "name": "card on failure",
+ "script": "card.lua",
+ "kind": "widget",
+ "entry": "card",
+ "run": {
+  "wol sys stats --json": [
+   {
+    "error": "wol: not found"
+   }
+  ]
+ },
+ "steps": [
+  {
+   "do": "render",
+   "now": [
+    2026,
+    11,
+    5,
+    4,
+    14,
+    0,
+    0
+   ]
+  }
+ ],
+ "expect": [
+  "Load Graph",
+  "wol: not found"
+ ],
+ "absent": [
+  "ERROR"
+ ],
+ "plugin": "wonderlandos.loadgraph",
+ "permissions": [
+  "run"
+ ]
+}

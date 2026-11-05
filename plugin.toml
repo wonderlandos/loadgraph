@@ -1,0 +1,27 @@
+# Load Graph: the last minutes of CPU and memory use as small graphs, on a desktop card and in the
+# menu bar. Data comes from `wol sys stats --json` through wol.run (permission "run"), like the
+# reference Stats plugin; the history is kept in memory only.
+schema = 1
+id = "wonderlandos.loadgraph"
+name = "Load Graph"
+version = "1.0"
+author = "WolOS"
+license = "GPL-2.0-or-later"
+description = "CPU and memory over the last minutes as small graphs, on a desktop card and in the menu bar."
+min_wolos = "0.13"
+permissions = ["run"]
+icon = "icon.png"
+screenshots = ["preview.webp"]
+categories = ["Work", "Develop"]
+homepage = "https://github.com/wonderlandos/loadgraph"
+about = "Load Graph answers the question a single number cannot: has the computer been busy for a while, or was that just a spike?\n\nThe desktop card draws CPU and memory use over the last six minutes, with the highest point and the load average. The menu bar item draws the last half minute of CPU next to the figure now. Click it to open Top.\n\nThe figures come from the same system report the Stats plugin uses. Nothing is saved: the graphs start again when you log in."
+
+[[menubar]]
+id = "bar"
+script = "bar.lua"
+side = "right"
+
+[[widget]]
+id = "card"
+script = "card.lua"
+sizes = ["medium", "large"]

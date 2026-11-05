@@ -1,0 +1,49 @@
+{
+ "name": "bar without data, then Open Top runs btop",
+ "script": "bar.lua",
+ "kind": "menubar",
+ "entry": "bar",
+ "run": {
+  "wol sys stats --json": [
+   {
+    "error": "Helpers are turned off on this computer."
+   }
+  ],
+  "foot -e btop": [
+   ""
+  ]
+ },
+ "steps": [
+  {
+   "do": "render",
+   "now": [
+    2026,
+    11,
+    5,
+    4,
+    14,
+    0,
+    0
+   ]
+  },
+  {
+   "do": "popover"
+  },
+  {
+   "do": "click",
+   "part": 1
+  }
+ ],
+ "expect": [
+  "CPU -",
+  "Helpers are turned off",
+  "run: foot -e btop"
+ ],
+ "absent": [
+  "ERROR"
+ ],
+ "plugin": "wonderlandos.loadgraph",
+ "permissions": [
+  "run"
+ ]
+}
