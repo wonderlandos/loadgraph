@@ -1,0 +1,13 @@
+# The hub's publisher manifest (https://hub.wolos.org, docs/WOLHUB-TOML.md in hub-worker).
+# The hub reads it at connect and at every release: this repository is a plugin, its release file is the .wolplug.
+schema = 1
+kind = "plugin"
+id = "wonderlandos.loadgraph"
+license = "GPL-2.0-or-later"
+asset = "wonderlandos.loadgraph-*.wolplug"
+homepage = "https://github.com/wonderlandos/loadgraph"
+min_wolos = "0.13"
+name = "Load Graph"
+summary = "CPU and memory over the last minutes as small graphs, on a desktop card and in the menu bar."
+icon = "icon.png"
+screenshots = ["preview.webp"]
